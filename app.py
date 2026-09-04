@@ -42,7 +42,7 @@ custom_css = """
         100% { background-position: 200% center; }
     }
     
-    /* सबसे ऊपर दिखने वाला प्रभात का संदेश */
+    /* सबसे ऊपर दिखने वाला संदेश */
     .love-sender-box {
         text-align: center;
         margin-top: 5px;
@@ -74,7 +74,7 @@ custom_css = """
         display: inline-block;
     }
     
-    /* फोटो के ऊपर और नीचे चमकने वाले शानदार रोमांटिक इंग्लिश टैग */
+    /* फोटो के ऊपर और नीचे चमकने वाले टैग */
     .romantic-badge {
         font-family: 'Georgia', serif;
         font-size: 1.2rem;
@@ -136,7 +136,7 @@ custom_css = """
         animation: textShine 3s linear infinite;
     }
 
-    /* डायरी के पन्नों (Tabs) की कस्टमाइज स्टाइल */
+    /* डायरी के पन्नों (Tabs) की स्टाइल */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
         justify-content: center;
@@ -176,12 +176,12 @@ if not st.session_state.authenticated:
             time.sleep(1)
             st.rerun()
         else:
-            st.error("गलत पासवर्ड! सिर्फ मेरी जान को असली कोड पता है। 😉")
+            st.error("गलत पासवर्ड! सही कोड दर्ज करें।")
     st.stop()
 
 # --- अनलॉक होने के बाद का मुख्य ऐप ---
 
-# बैकग्राउंड म्यूजिक चेंजिंग लॉजिक
+# बैकग्राउंड संगीत चेंजिंग लॉजिक
 if 'active_track' not in st.session_state:
     st.session_state.active_track = "https://chosic.com"
 
@@ -206,10 +206,8 @@ st.markdown(audio_html, unsafe_allow_html=True)
 all_files = os.listdir(".")
 all_images = [f for f in all_files if f.lower().endswith((".jpeg", ".jpg", ".png", ".webp"))]
 
-# मुख्य पन्ने के लिए पहली फोटो चुनी जाएगी
 main_photo = all_images[0] if len(all_images) > 0 else None
 
-# अगर गिटहब में ज्यादा फोटो होंगी तो वो एल्बम में स्लाइडर बन जाएंगी
 album_photos = all_images if len(all_images) > 0 else [
     "https://unsplash.com",
     "https://unsplash.com"
@@ -220,16 +218,10 @@ panna1, panna2, panna3 = st.tabs(["🏠 मुख्य पन्ना", "🎵 
 
 # ----------------- पन्ना 1: होम और ओरिजिनल कोट्स -----------------
 with panna1:
-    # प्रभात और लक्ष्मी का हेडर
     st.markdown('<div class="love-sender-box"><span class="love-name">🎉 PRABHAT 🎉</span><br><span style="color:#ffb3cc; font-size:0.9rem; font-weight:bold;">Wishes Happy Birthday To His Lifeline</span><br><span class="love-receiver-name">💖 LAXMI 💖</span></div>', unsafe_allow_html=True)
-
-    # मुख्य टाइटल
     st.markdown('<h1 class="main-title">Happy Birthday<br>My Love 🎂</h1>', unsafe_allow_html=True)
-
-    # पहला बैच
     st.markdown('<div class="romantic-badge badge-left">❤️ YOU ARE MY LIFE 🌹</div>', unsafe_allow_html=True)
 
-    # इमेज और गोल चक्र वाला साइड टेक्स्ट
     col1, col2 = st.columns(2)
 
     with col1:
@@ -265,12 +257,11 @@ with panna1:
         """
         st.markdown(circle_html, unsafe_allow_html=True)
 
-    # नीचे का दूसरा बैच
     st.markdown('<div class="romantic-badge badge-right">💝 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
-    # सारे लव और रोमांटिक कोट्स
-    quotes_html = """
-    <div class="wishes-container">
-        <p class="wish-text"><span class="wish-highlight">✨ 1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
-        <p class="wish-text"><span class="wish-highlight">❤️ 2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🧎</p>
-        <p class="wish-text"><span class="wish-highlight">💘 3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
+    # कोट्स को बिना किसी बैकस्लैश एरर के रेंडर करने के लिए सिंगल-लाइन ब्लॉक
+    st.markdown('<div class="wishes-container">', unsafe_allow_html=True)
+    st.markdown('<p class="wish-text"><span class="wish-highlight">✨ 1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>', unsafe_allow_html=True)
+    st.markdown('<p class="wish-text"><span class="wish-highlight">❤️ 2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🧎</p>', unsafe_allow_html=True)
+    st.markdown('<p class="wish-text"><span class="wish-highlight">💘 3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>', unsafe_allow_html=True)
+    
