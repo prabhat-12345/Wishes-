@@ -160,7 +160,7 @@ custom_css = """
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# 3. सीक्रेट पासवर्ड锁 स्क्रीन
+# 3. सीक्रेट पासवर्ड लॉक स्क्रीन
 if 'authenticated' not in st.session_state:
     st.session_state.authenticated = False
 
@@ -269,9 +269,8 @@ with panna1:
     st.markdown('<div class="romantic-badge badge-right">💝 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
     # सारे लव और रोमांटिक कोट्स
-    st.markdown(
-        """
-        <div class="wishes-container">
-            <p class="wish-text"><span class="wish-highlight">✨ 1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
-            <p class="wish-text"><span class="wish-highlight">❤️ 2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🧎</p>
-            <p class="wish-text"><span class="wish-highlight">💘 3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
+    quotes_html = """
+    <div class="wishes-container">
+        <p class="wish-text"><span class="wish-highlight">✨ 1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
+        <p class="wish-text"><span class="wish-highlight">❤️ 2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🧎</p>
+        <p class="wish-text"><span class="wish-highlight">💘 3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
