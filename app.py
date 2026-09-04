@@ -21,7 +21,7 @@ custom_css = """
         max-width: 450px !important;
     }
     
-    /* मुख्य बनावट设置 */
+    /* मुख्य बनावट सेटिंग */
     .main-title {
         font-family: 'Georgia', serif;
         text-align: center;
@@ -160,7 +160,7 @@ custom_css = """
 """
 st.markdown(custom_css, unsafe_allow_html=True)
 
-# 3. सीक्रेट पासवर्ड लॉक स्क्रीन
+# 3. सीक्रेट पासवर्ड锁 स्क्रीन
 if 'authenticated' not in st.session_state:
     st.session_state.authenticated = False
 
@@ -170,7 +170,7 @@ if not st.session_state.authenticated:
     
     password = st.text_input("सीक्रेट कोड (Password) दर्ज करें:", type="password")
     if st.button("डायरी खोलें 📖"):
-        if password == "1122":  # यह आपका पासवर्ड है
+        if password == "1122":  
             st.session_state.authenticated = True
             st.success("अनलॉक हो रहा है... ❤️")
             time.sleep(1)
@@ -181,7 +181,7 @@ if not st.session_state.authenticated:
 
 # --- अनलॉक होने के बाद का मुख्य ऐप ---
 
-# बैकग्राउंड संगीत चेंजिंग लॉजिक
+# बैकग्राउंड म्यूजिक चेंजिंग लॉजिक
 if 'active_track' not in st.session_state:
     st.session_state.active_track = "https://chosic.com"
 
@@ -202,14 +202,14 @@ audio_html = f"""
 """
 st.markdown(audio_html, unsafe_allow_html=True)
 
-# 🔍 ऑटोमैटिक फोटो ढूंढने का सिस्टम (बिना नाम बदले काम करेगा)
+# ऑटोमैटिक फोटो ढूंढने का सिस्टम (बिना नाम बदले काम करेगा)
 all_files = os.listdir(".")
 all_images = [f for f in all_files if f.lower().endswith((".jpeg", ".jpg", ".png", ".webp"))]
 
 # मुख्य पन्ने के लिए पहली फोटो चुनी जाएगी
 main_photo = all_images[0] if len(all_images) > 0 else None
 
-# अगर गिटहब में 1 से ज्यादा फोटो होंगी तो वो एल्बम में स्लाइडर बन जाएंगी, वरना सैंपल फोटो रहेंगी
+# अगर गिटहब में ज्यादा फोटो होंगी तो वो एल्बम में स्लाइडर बन जाएंगी
 album_photos = all_images if len(all_images) > 0 else [
     "https://unsplash.com",
     "https://unsplash.com"
@@ -233,14 +233,12 @@ with panna1:
     col1, col2 = st.columns(2)
 
     with col1:
-        # यहाँ कोड गिटहब में अपलोड की गई पहली फोटो को खुद खींचकर दिखा देगा
         if main_photo:
             st.image(main_photo, use_container_width=True)
         else:
             st.image("https://unsplash.com", use_container_width=True)
 
     with col2:
-        # आपका ओरिजिनल गोल घेरे वाला टेक्स्ट (11 YRS OF LOVE...)
         circle_html = """
         <div style="
             display: flex; 
@@ -270,9 +268,10 @@ with panna1:
     # नीचे का दूसरा बैच
     st.markdown('<div class="romantic-badge badge-right">💝 YOU ARE MY EVERYTHING 🧸</div>', unsafe_allow_html=True)
 
-    # आपके स्क्रीनशॉट वाले हूबहू सारे लव और रोमांटिक कोट्स (1 से 8 तक)
+    # सारे लव और रोमांटिक कोट्स
     st.markdown(
         """
         <div class="wishes-container">
             <p class="wish-text"><span class="wish-highlight">✨ 1. 11 Years of Togetherness:</span> हमारा यह 11 साल का सफर सिर्फ एक रिश्ता नहीं, मेरी पूरी जिंदगी की सबसे खूबसूरत सच्चाई है। 🌹</p>
             <p class="wish-text"><span class="wish-highlight">❤️ 2. Forever Mine:</span> चेहरे पर आपके रहे हमेशा नूर, खुदा कभी न करे हमसे आपको दूर... Happy Birthday Jaan! 🧎</p>
+            <p class="wish-text"><span class="wish-highlight">💘 3. To My Soulmate:</span> "You are the beat of my heart, the smile on my face, and the spark in my life. I love you endlessly." 🏹</p>
